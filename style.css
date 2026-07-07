@@ -1,0 +1,680 @@
+/* Pengaturan Dasar */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    color: #4a3b4e;
+    background-color: #fdfbfd;
+    line-height: 1.6;
+}
+
+h1, h2, h3, .logo {
+    font-family: 'Fredoka One', cursive;
+    color: #7a5c78; 
+}
+
+/* Navigasi & Tombol Troli */
+header {
+    background-color: #ffffff;
+    padding: 20px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    transition: 0.3s;
+}
+
+header .logo {
+    font-size: 24px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #4a3b4e;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #b594b9;
+}
+
+/* Tombol Troli Melayang di Pojok Kanan Bawah */
+.floating-cart {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: #7a5c78;
+    color: white;
+    border: none;
+    padding: 15px 25px;
+    border-radius: 30px;
+    font-size: 16px;
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+    cursor: pointer;
+    box-shadow: 0 5px 20px rgba(122, 92, 120, 0.4);
+    z-index: 1000;
+    transition: transform 0.3s, background-color 0.3s;
+}
+
+.floating-cart:hover {
+    background-color: #5c455a;
+    transform: translateY(-3px);
+}
+
+/* Animasi memantul saat barang ditambahkan ke troli */
+.animasi-mantul {
+    animation: mantul 0.3s ease-in-out;
+}
+
+@keyframes mantul {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.15); }
+}
+/* Hero Section */
+.hero {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: linear-gradient(135deg, #eaddf0 0%, #fdfbfd 100%);
+    padding-top: 80px;
+}
+
+.hero-logo {
+    width: 250px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+    box-shadow: 0 10px 30px rgba(122, 92, 120, 0.2);
+}
+
+.hero h1 {
+    font-size: 48px;
+    margin-bottom: 10px;
+}
+
+.tagline {
+    font-size: 18px;
+    font-style: italic;
+    color: #7a5c78;
+    margin-bottom: 30px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: #7a5c78;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: 600;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.btn:hover {
+    background-color: #5c455a;
+    transform: translateY(-2px);
+}
+
+/* Menu Section */
+.menu-section {
+    padding: 80px 10%;
+    text-align: center;
+}
+
+.menu-section h2 {
+    font-size: 36px;
+    margin-bottom: 40px;
+}
+
+/* Mengatur grid secara dinamis */
+.menu-grid {
+    display: grid;
+    /* Desktop: 3 kolom. HP: 2 kolom */
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 20px;
+}
+
+/* RESPONSIVE: Jika layar HP (lebar maks 600px) */
+@media (max-width: 600px) {
+    .menu-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 kolom di HP */
+        gap: 10px; /* Jarak lebih rapat di HP */
+    }
+    
+    .menu-card {
+        padding: 15px; /* Padding lebih kecil agar hemat ruang */
+    }
+    
+    .menu-img {
+        margin-bottom: 10px;
+    }
+    
+    .menu-card h3 {
+        font-size: 14px; /* Judul sedikit lebih kecil di HP */
+    }
+}
+
+.menu-card {
+    background: #fff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.04);
+    transition: transform 0.3s;
+    
+    /* Tambahkan kode ini agar tombol selalu di bawah */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%; 
+}
+
+/* Memastikan deskripsi menu mengisi ruang kosong agar tombol terdorong ke bawah */
+.menu-card p:not(.harga) {
+    flex-grow: 1;
+    margin-bottom: 20px;
+}
+
+.btn-pesan {
+    margin-top: auto; /* Ini memaksa tombol untuk selalu berada di posisi paling bawah kartu */
+    padding: 10px 20px;
+    border: none;
+    background-color: #eaddf0;
+    color: #7a5c78;
+    font-weight: 600;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+    width: 100%;
+}
+
+/* Pengaturan Foto Menu (Otomatis Rasio 1:1) */
+.menu-img {
+    width: 100%;
+    aspect-ratio: 1 / 1; /* Membuat bingkai menjadi kotak sempurna */
+    object-fit: cover; /* Memastikan foto memenuhi bingkai tanpa terlihat gepeng */
+    border-radius: 10px; /* Membuat sudut foto sedikit melengkung */
+    margin-bottom: 15px;
+    background-color: #f0e6f2; /* Warna latar sementara jika foto belum dimuat */
+}
+
+.harga {
+    font-weight: 600;
+    color: #7a5c78;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.btn-pesan {
+    margin-top: 20px;
+    padding: 10px 20px;
+    border: none;
+    background-color: #eaddf0;
+    color: #7a5c78;
+    font-weight: 600;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+    width: 100%;
+}
+
+.btn-pesan:hover {
+    background-color: #7a5c78;
+    color: #fff;
+}
+
+/* Modal Pop-up Troli Belanja */
+.modal {
+    display: none; 
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 500px;
+    position: relative;
+    box-shadow: 0 5px 30px rgba(0,0,0,0.3);
+}
+
+.close-btn {
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    font-size: 28px;
+    cursor: pointer;
+    color: #aaa;
+}
+
+.close-btn:hover {
+    color: #000;
+}
+
+.troli-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.troli-total {
+    margin-top: 20px;
+    font-size: 18px;
+    text-align: right;
+}
+
+.btn-checkout {
+    background-color: #25d366; /* Warna Hijau WA */
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 25px;
+    width: 100%;
+    margin-top: 20px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.btn-checkout:hover {
+    background-color: #1ebd56;
+}
+
+/* Footer & Kontak */
+footer {
+    background-color: #4a3b4e;
+    color: #fff;
+    text-align: center;
+    padding: 40px 20px 20px;
+}
+
+footer h3 {
+    color: #eaddf0;
+    margin-bottom: 10px;
+}
+
+.kontak-links {
+    margin-top: 15px;
+}
+
+.link-item {
+    color: #eaddf0;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+.link-item:hover {
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+.pemisah {
+    margin: 0 10px;
+    color: #eaddf0;
+    opacity: 0.5;
+}
+
+.copyright {
+    margin-top: 20px;
+    font-size: 14px;
+    opacity: 0.7;
+}
+
+/* Tentang Kami */
+.tentang-section {
+    padding: 80px 10%;
+    background-color: #f0e6f2; /* Warna latar ungu sangat muda agar berbeda dari menu */
+    text-align: center;
+}
+
+.tentang-section h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.tentang-section p {
+    max-width: 700px;
+    margin: 0 auto;
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+/* Tombol Kontrol (+/-) di Troli */
+.troli-item {
+    align-items: flex-start;
+}
+
+.troli-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 8px;
+}
+
+.btn-qty {
+    background-color: #eaddf0;
+    color: #7a5c78;
+    border: none;
+    width: 28px;
+    height: 28px;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.btn-qty:hover {
+    background-color: #7a5c78;
+    color: #fff;
+}
+
+.btn-hapus {
+    background-color: #ff6b6b;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 5px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s;
+    margin-left: 5px;
+}
+
+.btn-hapus:hover {
+    background-color: #e63946;
+}
+
+/* Bagian Info Pesan & Pengiriman */
+.info-section {
+    padding: 80px 10%;
+    background-color: #fff;
+    text-align: center;
+}
+
+.info-section h2 {
+    font-size: 36px;
+    margin-bottom: 40px;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.info-card {
+    background: #fdfbfd;
+    padding: 30px;
+    border-radius: 15px;
+    border: 1px dashed #b594b9;
+    transition: transform 0.3s;
+}
+
+.info-card:hover {
+    transform: translateY(-5px);
+    background: #f0e6f2;
+}
+
+.info-icon {
+    font-size: 50px;
+    margin-bottom: 15px;
+}
+
+.info-card h3 {
+    margin-bottom: 10px;
+    color: #5c455a;
+}
+
+/* Bagian Testimoni */
+.testimoni-section {
+    padding: 80px 10%;
+    background: linear-gradient(135deg, #fdfbfd 0%, #eaddf0 100%);
+    text-align: center;
+}
+
+.testimoni-section h2 {
+    font-size: 36px;
+    margin-bottom: 40px;
+}
+
+.testimoni-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Desktop 3 kolom */
+    gap: 20px;
+}
+
+@media (max-width: 768px) {
+    .testimoni-grid {
+        grid-template-columns: 1fr; /* Di HP, testimoni jadi 1 kolom ke bawah */
+    }
+}
+
+.testimoni-card {
+    background: #fff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+    text-align: left;
+    position: relative;
+    
+    /* Mengaktifkan Flexbox agar kartu bisa meregang */
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+/* Memastikan teks testimoni mengisi ruang kosong */
+.testimoni-card p {
+    font-style: italic;
+    color: #666;
+    margin-bottom: 20px;
+    flex-grow: 1; /* Paragraf akan meregang untuk mendorong profil ke bawah */
+}
+
+/* Memastikan profil pelanggan (foto + nama) tetap di bawah */
+.profil-pelanggan {
+    margin-top: auto; /* Memaksa bagian profil tetap di posisi paling bawah */
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* Gaya untuk Foto Pelanggan di Testimoni */
+.profil-pelanggan {
+    display: flex;
+    align-items: center; /* Membuat foto dan nama sejajar di tengah */
+    gap: 15px; /* Jarak antara foto dan nama */
+    margin-top: 20px;
+}
+
+/* Gaya untuk Foto Pelanggan di Testimoni (Bentuk Kotak 1:1) */
+.profil-pelanggan {
+    display: flex;
+    align-items: center; 
+    gap: 15px; 
+    margin-top: 20px;
+}
+
+.foto-pelanggan {
+    width: 80px; /* Ukurannya diperbesar sedikit agar teks/gambar di dalam fotonya lebih jelas */
+    height: 80px;
+    aspect-ratio: 1 / 1; /* Menjaga bentuknya tetap kotak sempurna */
+    border-radius: 10px; /* Membuat sudut-sudutnya sedikit melengkung (tidak lancip kaku) */
+    object-fit: cover; 
+    border: 2px solid #eaddf0; 
+    background-color: #f0e6f2; 
+}
+
+.profil-pelanggan h4 {
+    color: #7a5c78;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    margin: 0; 
+}
+
+/* Banner Promo */
+.promo-banner {
+    background-color: #b594b9; /* Warna lilac yang sedikit lebih gelap */
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1001; /* Memastikan banner selalu di paling atas */
+}
+
+/* 
+   PENTING: Cari kode "header" yang lama di bagian atas style.css kamu, 
+   lalu ubah nilai "top: 0;" menjadi "top: 40px;" seperti di bawah ini, 
+   agar menu navigasi tidak tertumpuk oleh banner promo. 
+*/
+header {
+    top: 40px; 
+}
+
+/* Gaya untuk Jam Operasional di Footer */
+.jam-operasional {
+    margin: 20px 0;
+    font-size: 15px;
+    color: #eaddf0;
+    line-height: 1.8;
+}
+
+.jam-operasional strong {
+    color: #fff;
+    font-size: 16px;
+}
+
+/* =========================================
+   ANIMASI FADE-IN SAAT DI-SCROLL
+   ========================================= */
+.fade-in {
+    opacity: 0;
+    transform: translateY(40px); /* Elemen digeser 40px ke bawah */
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in.muncul {
+    opacity: 1;
+    transform: translateY(0); /* Elemen kembali ke posisi semula */
+}
+
+/* Sedikit penundaan agar munculnya bergantian (efek gelombang) */
+.delay-1 { transition-delay: 0.1s; }
+.delay-2 { transition-delay: 0.2s; }
+.delay-3 { transition-delay: 0.3s; }
+
+.hero-logo {
+    width: 250px;
+    height: 250px; /* Memastikan ukurannya konsisten */
+    object-fit: contain; /* Agar vektor tidak terpotong */
+    margin-bottom: 20px;
+    filter: drop-shadow(0 5px 15px rgba(122, 92, 120, 0.2)); /* Memberi bayangan halus agar vektor terlihat sedikit melayang */
+    transition: transform 0.5s ease;
+}
+
+.hero-logo:hover {
+    transform: scale(1.05); /* Sedikit membesar saat mouse diarahkan ke vektor */
+}
+
+/* Styling Ikon agar terlihat profesional */
+.kontak-links a {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px; /* Jarak antara ikon dan teks */
+    font-size: 16px;
+}
+
+.kontak-links i {
+    font-size: 20px; /* Ukuran ikon sedikit lebih besar dari teks */
+    transition: transform 0.3s;
+}
+
+.kontak-links a:hover i {
+    transform: scale(1.2); /* Ikon membesar sedikit saat disentuh */
+}
+
+@media (max-width: 600px) {
+    /* 1. Header & Navigasi */
+    header {
+        padding: 10px 15px; /* Kurangi padding agar hemat ruang */
+        flex-direction: column; /* Ubah posisi logo dan menu jadi bertumpuk */
+        gap: 10px;
+    }
+
+    nav ul {
+        gap: 10px; /* Jarak antar menu lebih rapat */
+        font-size: 11px; /* Font lebih kecil agar tidak turun ke bawah */
+        flex-wrap: wrap; /* Jika menu kepanjangan, akan otomatis pindah baris */
+        justify-content: center;
+    }
+
+    /* 2. Banner Promo */
+    .promo-banner {
+        font-size: 11px; /* Promo juga diperkecil agar satu baris */
+    }
+
+    /* 3. Hero Section */
+    .hero {
+        padding-top: 120px; /* Beri ruang ekstra karena header jadi lebih tinggi */
+    }
+
+    .hero h1 {
+        font-size: 28px;
+    }
+
+    /* 4. Grid Menu (Memastikan 2 kolom) */
+    .menu-grid {
+        grid-template-columns: repeat(2, 1fr); 
+        gap: 10px;
+    }
+    
+    .menu-card {
+        padding: 10px;
+    }
+
+    .menu-card h3 {
+        font-size: 13px;
+        min-height: 3em; /* Menjaga tinggi judul agar tetap sejajar */
+    }
+
+    .harga {
+        font-size: 14px;
+    }
+}

@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kukae Bakes</title>
+    
+    <link rel="icon" href="images/img.png" type="image/jpeg">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <meta name="description" content="Kukae Bakes - Toko kue premium dengan pilihan menu lezat untuk momen spesialmu. Pre-order sekarang via WhatsApp!">
+</head>
+<body>
+
+    <!-- Banner Promo di Paling Atas -->
+    <div class="promo-banner">
+        🎉 PROMO SPESIAL: Diskon 10% untuk pemesanan pertamamu via WhatsApp! 🎉
+    </div>
+
+    <!-- Navigasi -->
+    <header id="navbar">
+        <div class="logo">Kukae Bakes</div>
+        <nav>
+            <ul>
+                <li><a href="#beranda">Beranda</a></li>
+                <li><a href="#menu">Menu Kami</a></li>
+                <li><a href="#tentang">Tentang</a></li>
+                <li><a href="#kontak">Kontak</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Bagian Utama (Hero Section) -->
+    <section id="beranda" class="hero">
+        <div class="hero-content fade-in">
+            <img src="images/icon.png" alt="Ilustrasi Kukae Bakes" class="hero-logo">
+            <h1>Selamat Datang di Kukae Bakes</h1>
+            <p class="tagline">"you can find the joyfull here .."</p>
+            <a href="#menu" class="btn">Lihat Menu</a>
+        </div>
+    </section>
+
+    <!-- Bagian Menu -->
+    <section id="menu" class="menu-section">
+        <h2 class="fade-in">Menu Andalan Kami</h2>
+        <div class="menu-grid">
+            <!-- Menu 1 -->
+            <div class="menu-card fade-in delay-1">
+                <img src="images/foto1.png" alt="Garlic Cheese" class="menu-img">
+                <h3>Garlic Cheese</h3>
+                <p class="harga">Rp 65.000/toples</p>
+                <p>Kue lembut isi krim keju dengan olesan mentega bawang putih yang gurih dan creamy.</p>
+                <button class="btn-pesan" onclick="tambahKeTroli('Garlic Cheese', 65000)">+ Ke Troli</button>
+            </div>
+            <!-- Menu 2 -->
+            <div class="menu-card fade-in delay-2">
+                <img src="images/foto2.png" alt="Castengel" class="menu-img">
+                <h3>Castengel</h3>
+                <p class="harga">Rp 35.000/toples</p>
+                <p>Kue kering keju dengan tekstur renyah dan rasa gurih.</p>
+                <button class="btn-pesan" onclick="tambahKeTroli('Castengel', 35000)">+ Ke Troli</button>
+            </div>
+            <!-- Menu 3 (Typo pada img diperbaiki) -->
+            <div class="menu-card fade-in delay-3">
+                <img src="images/foto3.png" alt="Custom Cookies" class="menu-img">
+                <h3>Custom Cookies</h3>
+                <p class="harga">Rp 7.000/pcs</p>
+                <p>Kukis yang dihias dengan desain, warna, atau tulisan sesuai permintaan.</p>
+                <button class="btn-pesan" onclick="tambahKeTroli('Custom Cookies', 7000)">+ Ke Troli</button>
+            </div>
+            <!-- Menu 4 -->
+            <div class="menu-card fade-in delay-1">
+                <img src="images/foto4.png" alt="Nastar" class="menu-img">
+                <h3>Nastar</h3>
+                <p class="harga">Rp 75.000/toples</p>
+                <p>Kue kering lembut dengan isian selai nanas bercita rasa manis dan sedikit asam.</p>
+                <button class="btn-pesan" onclick="tambahKeTroli('Nastar', 75000)">+ Ke Troli</button>
+            </div>
+            <!-- Menu 5 -->
+            <div class="menu-card fade-in delay-2">
+                <img src="images/foto5.png" alt="Kue Ulang Tahun Custom" class="menu-img">
+                <h3>Kue Ulang Tahun Custom</h3>
+                <p class="harga">Rp 150.000</p>
+                <p>Kue tart yang dibuat secara eksklusif dan dipersonalisasi sesuai permintaan khusus pembeli. </p>
+                <button class="btn-pesan" onclick="tambahKeTroli('Kue Ulang Tahun Custom', 150000)">+ Ke Troli</button>
+            </div>
+            <!-- Menu 6 -->
+            <div class="menu-card fade-in delay-3">
+                <img src="images/foto6.png" alt="Milk Bun" class="menu-img">
+                <h3>Milk Bun</h3>
+                <p class="harga">Rp 25.000/pcs</p>
+                <p>Roti sobek Jepang super lembut dengan isian krim susu dingin lumer, serta taburan bubuk susu dan gula halus di atasnya.</p>
+                <button class="btn-pesan" onclick="tambahKeTroli('Milk Bun', 25000)">+ Ke Troli</button>
+            </div>
+            <!-- Menu 7 -->
+            <div class="menu-card fade-in delay-1">
+                <img src="images/foto7.png" alt="Stick Chocolate" class="menu-img">
+                <h3>Stick Chocolate</h3>
+                <p class="harga">Rp 70.000/toples</p>
+                <p>Kue mungil berbentuk balok dengan lapisan cokelat di atasnya.</p>
+                <button class="btn-pesan" onclick="tambahKeTroli('Stick Chocolate', 70000)">+ Ke Troli</button>
+            </div>
+            <!-- Menu 8 -->
+            <div class="menu-card fade-in delay-2">
+                <img src="images/foto8.png" alt="Matcha Butter Cookies" class="menu-img">
+                <h3>Matcha Butter Cookies</h3>
+                <p class="harga">Rp 65.000/toples</p>
+                <p>Kukis matcha yang lembut, renyah, dan kaya aroma teh hijau.</p>
+                <button class="btn-pesan" onclick="tambahKeTroli('Matcha Butter Cookies', 65000)">+ Ke Troli</button>
+            </div>
+            <!-- Menu 9 -->
+            <div class="menu-card fade-in delay-3">
+                <img src="images/foto9.png" alt="B&W Donuts" class="menu-img">
+                <h3>B&W Donuts</h3>
+                <p class="harga">Rp 6.000/pcs</p>
+                <p>Donat cokelat lembut dengan lapisan glaze vanilla yang manis.</p>
+                <button class="btn-pesan" onclick="tambahKeTroli('B&W Donuts', 6000)">+ Ke Troli</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bagian Tentang Kami -->
+    <section id="tentang" class="tentang-section">
+        <h2 class="fade-in">Tentang Kukae Bakes</h2>
+        <p class="fade-in delay-1">
+            Kukae Bakes lahir dari kecintaan kami terhadap dunia <em>baking</em> dan komitmen untuk menyajikan kebahagiaan di setiap gigitan. Kami menggunakan bahan-bahan premium pilihan dan resep rahasia untuk memastikan setiap kue, roti, dan <em>dessert</em> yang sampai ke tanganmu selalu <em>fresh</em>, lezat, dan dibuat dengan penuh cinta. <br><br><strong>"You can find the joyfull here.."</strong>
+        </p>
+    </section>
+
+    <!-- Bagian Cara Pesan & Pengiriman -->
+    <section id="info-pesan" class="info-section">
+        <h2 class="fade-in">Informasi Pemesanan & Pengiriman</h2>
+        <div class="info-grid">
+            <div class="info-card fade-in delay-1">
+                <div class="info-icon">📦</div>
+                <h3>Sistem Pemesanan</h3>
+                <p>Sebagian besar kue kami dibuat berdasarkan pesanan (Pre-Order H-2) agar selalu <em>fresh</em> saat kamu terima. Beberapa menu kering (seperti cookies) tersedia <em>Ready Stock</em>.</p>
+            </div>
+            <div class="info-card fade-in delay-2">
+                <div class="info-icon">🛵</div>
+                <h3>Pengiriman</h3>
+                <p>Pengiriman dilakukan menggunakan kurir instan (GrabExpress/GoSend) dari dapur kami di Bogor. Pastikan titik lokasimu sesuai agar ongkos kirim akurat.</p>
+            </div>
+            <div class="info-card fade-in delay-3">
+                <div class="info-icon">🛍️</div>
+                <h3>Ambil Sendiri (Pick-Up)</h3>
+                <p>Kamu juga bisa mengambil pesananmu langsung ke lokasi kami. Silakan konfirmasi jam pengambilan kepada admin melalui WhatsApp.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bagian Testimoni -->
+    <section id="testimoni" class="testimoni-section">
+        <h2 class="fade-in">Apa Kata Mereka?</h2>
+        <div class="testimoni-grid">
+            <div class="testimoni-card fade-in delay-1">
+                <div class="bintang">⭐⭐⭐⭐⭐</div>
+                <p>"Pertama kali pesen di sini dan hasilnya di luar ekspektasi. Dekorasinya rapi, rasanya juga premium. Semua yang nyobain bilang enak!"</p>
+                <div class="profil-pelanggan">
+                    <img src="Testimoni/testi3.png" alt="Foto Dinda" class="foto-pelanggan">
+                    <h4>- Dinda</h4>
+                </div>
+            </div>
+            <div class="testimoni-card fade-in delay-2">
+                <div class="bintang">⭐⭐⭐⭐⭐</div>
+                <p>"Seneng banget sama hasilnya. Cake cantik, fresh, dan manisnya pas. Pelayanannya juga ramah dan pengirimannya aman. Recommended!"</p>
+                <div class="profil-pelanggan">
+                    <img src="Testimoni/testi1.png" alt="Foto Lala" class="foto-pelanggan">
+                    <h4>- Lala</h4>
+                </div>
+            </div>
+            <div class="testimoni-card fade-in delay-3">
+                <div class="bintang">⭐⭐⭐⭐⭐</div>
+                <p>"Kuenya enak banget! Cake-nya lembut, krimnya nggak bikin enek, dan desainnya sesuai request. Cocok buat momen spesial. Pasti order lagi!"</p>
+                <div class="profil-pelanggan">
+                    <img src="Testimoni/testi2.png" alt="Foto Amanda" class="foto-pelanggan">
+                    <h4>- Amanda</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tampilan Modal Troli Belanja -->
+    <div id="troli-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="toggleTroli()">&times;</span>
+            <h2>Troli Belanja Anda</h2>
+            <div id="troli-items">
+                <p style="text-align: center; color: #aaa;">Troli masih kosong.</p>
+            </div>
+            <div class="troli-total">
+                <strong>Total Harga: </strong> <span id="troli-total-harga">Rp 0</span>
+            </div>
+            <button class="btn-checkout" onclick="checkoutWhatsApp()">Checkout via WhatsApp</button>
+        </div>
+    </div>
+
+   <!-- Footer Section -->
+    <footer id="kontak">
+        <div class="footer-content">
+            <h3 class="fade-in">Kukae Bakes</h3>
+            <p class="fade-in delay-1">Membawa kebahagiaan di setiap gigitan.</p>
+            
+            <!-- Jam Operasional -->
+            <div class="jam-operasional fade-in delay-2">
+                <p><strong>🕒 Jam Operasional:</strong></p>
+                <p>Senin - Sabtu (10.00 - 15.00 WIB)</p>
+                <p>Minggu & Hari Libur (Tutup)</p>
+            </div>
+
+            <div class="kontak-links fade-in delay-3">
+                <a href="https://instagram.com/kukae.bakes" target="_blank" class="link-item">
+                    <i class="fab fa-instagram"></i> @kukae.bakes
+                </a>
+                <span class="pemisah">|</span>
+                <a href="https://wa.me/6285772182367" target="_blank" class="link-item">
+                    <i class="fab fa-whatsapp"></i> WhatsApp
+                </a>
+                <span class="pemisah">|</span>
+                <a href="https://maps.app.goo.gl/eKNQCShX4qngLvF17" target="_blank" class="link-item">
+                    <i class="fas fa-map-marker-alt"></i> Lokasi Toko
+                </a>
+            </div>
+            
+            <div class="copyright fade-in">
+                &copy; 2026 Kukae Bakes. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Tombol Troli Melayang -->
+    <button class="floating-cart" onclick="toggleTroli()" id="btn-troli-melayang">
+        🛒 Troli (<span id="cart-count">0</span>)
+    </button>
+
+    <script src="script.js"></script>
+</body>
+</html>
